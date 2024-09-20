@@ -1,7 +1,21 @@
-# Tauri + React + Typescript
+Simple translator GUI app in Windows
+Japanise to English and English to Japanese.
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+# Getting Started
+binフォルダに以下のファイルを配置してください。
+* [C3TR-Adapter](https://huggingface.co/webbigdata/C3TR-Adapter_gguf)
+* [llama.cpp](https://github.com/ggerganov/llama.cpp)
+* [c3tr-client](https://github.com/koron/c3tr-client)
 
-## Recommended IDE Setup
+コンパイル済バイナリでも大丈夫なはずです。
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+配置したら、model_config.jsonのadaptorを修正してください。
+同じモデルを使用している場合は変更の必要はありません。
+
+```model_config.json
+{
+  "adaptor": "C3TR-Adapter-Q4_k_m.gguf",
+  "server": "llama-server.exe",
+  "client": "c3tr-client.exe"
+}
+```
