@@ -14,7 +14,7 @@ binフォルダに以下のファイルを配置してください。
 
 ```model_config.json
 {
-  "adaptor": "C3TR-Adapter-Q4_k_m.gguf",
+  "model": "C3TR-Adapter-Q4_k_m.gguf",
   "server": "llama-server.exe",
   "client": "c3tr-client.exe"
 }

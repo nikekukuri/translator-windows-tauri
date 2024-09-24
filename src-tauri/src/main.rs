@@ -28,7 +28,7 @@ fn get_global_var() -> Option<String> {
 
 #[derive(Deserialize)]
 struct Config {
-    adaptor: String,
+    model: String,
     server: String,
     client: String,
 }
@@ -46,8 +46,8 @@ fn start_llama_server() -> Result<Child, String> {
 
     let config: Config = serde_json::from_str(&contents).expect("Failed to parse model_config.json");
 
-    let adaptor_file = config.adaptor;
-    let adaptor_path = project_root.join("bin").join(adaptor_file);
+    let model_file = config.model;
+    let model_path = project_root.join("bin").join(model_file);
 
     let server_file = config.server;
     let server_path = project_root.join("bin").join(server_file);
@@ -60,7 +60,7 @@ fn start_llama_server() -> Result<Child, String> {
     let child = Command::new(server_path)
         .arg("--log-disable")
         .arg("-m")
-        .arg(adaptor_path)
+        .arg(model_path)
         .arg("-ngl")
         .arg("43")
         .spawn()
