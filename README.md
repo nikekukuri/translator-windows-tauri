@@ -19,3 +19,13 @@ binフォルダに以下のファイルを配置してください。
   "client": "c3tr-client.exe"
 }
 ```
+
+# Usage
+* for Debug
+```
+cargo tauri dev
+```
+* for Release
+```
+cargo tauri build
+```
